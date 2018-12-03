@@ -1,12 +1,12 @@
-mod randomNumber;
+mod random_number;
 
-pub use randomNumber::find;
+pub use random_number::find;
 
 pub fn main() {
   random();
 }
 
 fn random() {
-  let result = randomNumber::find();
-  println!("randomNumber: {}", result);
+  let result = random_number::find();
+  println!("random_number: {}", result);
 }

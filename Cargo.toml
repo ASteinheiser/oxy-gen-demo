@@ -4,5 +4,8 @@ version = "0.1.0"
 authors = ["Andrew Steinheiser <me@iamandrew.io>"]
 
 [lib]
-name = "randomNumber"
+name = "random_number"
 crate-type = ["dylib"]
+
+[dependencies]
+rand = "0.6.1"

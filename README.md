@@ -3,5 +3,6 @@
 ### Install and Run:
 ```
 yarn install
+cargo build
 npm run dev
 ```
