@@ -2,6 +2,6 @@
 
 ### Install and Run:
 ```
-npm install
-npm start
+yarn install
+npm run dev
 ```
