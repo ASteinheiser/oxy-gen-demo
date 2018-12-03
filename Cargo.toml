@@ -1,0 +1,8 @@
+[package]
+name = "react-rust-app"
+version = "0.1.0"
+authors = ["Andrew Steinheiser <me@iamandrew.io>"]
+
+[lib]
+name = "randomNumber"
+crate-type = ["dylib"]

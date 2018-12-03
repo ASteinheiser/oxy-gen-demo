@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
 
+const ffi = require('ffi-napi');
+const path = require('path');
+
+const randomNumber = ffi.Library(path.join(__dirname, './target/debug/librandomNumber'), {
+  find: [null, ['int']]
+});
+
 import './random-number.scss';
 
 const RandomNumber = (props) => {
@@ -7,7 +14,7 @@ const RandomNumber = (props) => {
   const [number, setNumber] = useState(0);
 
   function handleClick() {
-    setNumber((Math.random() * 100000).toFixed(0));
+    setNumber(randomNumber.find());
   }
 
   return(
