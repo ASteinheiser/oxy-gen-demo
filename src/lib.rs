@@ -8,5 +8,5 @@ pub fn main() {
 
 fn random() {
   let result = randomNumber::find();
-  println!("randomNumber: ", result);
+  println!("randomNumber: {}", result);
 }

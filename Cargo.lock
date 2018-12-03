@@ -1,0 +1,6 @@
+[[package]]
+name = "react-rust-app"
+version = "0.1.0"
+
+[dependencies]
+rand = "0.6.1"
