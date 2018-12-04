@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 
-const ffi = require('ffi-napi');
-const path = require('path');
-
-const randomNumber = ffi.Library(path.join(__dirname, './target/debug/librandomNumber'), {
-  find: [null, ['int']]
-});
+import { randomNumber } from '../../rust-bindings';
 
 import './random-number.scss';
 
