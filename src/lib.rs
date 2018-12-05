@@ -1,5 +1,13 @@
+extern crate wasm_bindgen;
 extern crate rand;
 
-mod random_number;
+use wasm_bindgen::prelude::*;
+use rand::prelude::*;
 
-pub use random_number::find;
+#[wasm_bindgen]
+pub extern fn find() -> i32 {
+
+  let mut rng = rand::thread_rng();
+
+  return rng.gen::<i32>();
+}

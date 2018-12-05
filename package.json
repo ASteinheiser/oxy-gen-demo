@@ -5,20 +5,21 @@
   "homepage": "./",
   "main": "electron-start.js",
   "dependencies": {
-    "ffi-napi": "^2.4.4",
     "node-sass": "^4.10.0",
     "react": "^16.7.0-alpha.0",
     "react-dom": "^16.7.0-alpha.0",
     "react-scripts": "2.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "dev": "nf start",
+    "build": "npm run build-wasm && npm run build-bindgen && react-scripts build",
     "test": "react-scripts test",
+    "start": "react-scripts start",
     "eject": "react-scripts eject",
     "electron": "electron .",
     "electron-dev": "ELECTRON_START_URL=http://localhost:3000 electron .",
-    "dev": "nf start"
+    "build-wasm": "cargo build --target wasm32-unknown-unknown",
+    "build-bindgen": "wasm-bindgen --no-typescript target/wasm32-unknown-unknown/debug/random_number.wasm --out-dir src/rust"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { random_number } from '../../rust-bindings';
+import { find } from '../../rust/random_number';
 
 import './random-number.scss';
 
@@ -9,7 +9,7 @@ const RandomNumber = (props) => {
   const [number, setNumber] = useState(0);
 
   function handleClick() {
-    setNumber(random_number.find());
+    setNumber(find());
   }
 
   return(
