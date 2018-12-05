@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import { find } from '../../rust/random_number';
-
 import './random-number.scss';
 
 const RandomNumber = (props) => {
@@ -9,7 +7,7 @@ const RandomNumber = (props) => {
   const [number, setNumber] = useState(0);
 
   function handleClick() {
-    setNumber(find());
+    setNumber(window.find_num());
   }
 
   return(

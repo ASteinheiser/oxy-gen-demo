@@ -4,7 +4,7 @@ import * as wasm from './random_number_bg';
 /**
 * @returns {number}
 */
-export function find() {
-    return wasm.find();
+export function find_num() {
+    return wasm.find_num();
 }
 

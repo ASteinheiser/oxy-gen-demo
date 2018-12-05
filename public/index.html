@@ -22,6 +22,15 @@
     <title>React App</title>
   </head>
   <body>
+    <script>
+      fetch("random_number_bg.wasm").then(response =>
+        response.arrayBuffer()
+      ).then(bytes =>
+        WebAssembly.instantiate(bytes, {imports: {}})
+      ).then(results => {
+        window.find_num = results.instance.exports.find_num;
+      });
+    </script>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
