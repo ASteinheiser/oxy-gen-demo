@@ -20,7 +20,9 @@ const Fibonacci = (props) => {
 
   const valid = seed >= 0;
 
-  function handleRunTest() {
+  function handleRunTest(e) {
+    if(e && typeof e.preventDefault === 'function') e.preventDefault();
+
     if(valid) {
       // call the fibonacci WASM function from the window object
       const rustTime = timedFunction(() => {
@@ -39,7 +41,7 @@ const Fibonacci = (props) => {
 
   return(
     <div className='fibonacci-container'>
-      <div className='fibonacci-input'>
+      <form className='fibonacci-input' onSubmit={handleRunTest}>
         <Input
           label='Seed Number'
           type='number'
@@ -52,7 +54,7 @@ const Fibonacci = (props) => {
             text='Run Test'
             onClick={handleRunTest} />
         </div>
-      </div>
+      </form>
 
       <div className='fibonacci-result-container'>
 
