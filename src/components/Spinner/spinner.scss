@@ -1,0 +1,31 @@
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 1;
+  height: 100%;
+
+  &:after {
+    content: " ";
+    display: block;
+    
+    width: 92px;
+    height: 92px;
+
+    border-radius: 50%;
+    border: 10px solid var(--purple);
+    border-color: var(--purple) transparent var(--purple) transparent;
+
+    animation: spinning 1.2s linear infinite;
+  }
+}
+
+@keyframes spinning {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
