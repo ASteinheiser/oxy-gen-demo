@@ -11,19 +11,20 @@ const Fibonacci = (props) => {
 
   const [rust, setRust] = useState('-');
   const [node, setNode] = useState('-');
-  const [number, setNumber] = useState('25');
-  const valid = number >= 0;
+  const [seed, setSeed] = useState('25');
+
+  const valid = seed >= 0;
 
   function handleRunTest() {
     if(valid) {
       // call the fibonacci WASM function from the window object
       const rustTime = timedFunction(() => {
-        window.fibonacci(number);
+        window.fibonacci(seed);
       });
       setRust((rustTime / 1000).toFixed(3));
       // call the fibonacci javascript function
       const nodeTime = timedFunction(() => {
-        fibonacciNode(number);
+        fibonacciNode(seed);
       });
       setNode((nodeTime / 1000).toFixed(3));
     }
@@ -35,9 +36,9 @@ const Fibonacci = (props) => {
         <Input
           label='Seed Number'
           type='number'
-          value={number}
+          value={seed}
           valid={valid}
-          onChange={(e) => setNumber(e.target.value)} />
+          onChange={(e) => setSeed(e.target.value)} />
 
         <div className='fibonacci-button'>
           <Button
