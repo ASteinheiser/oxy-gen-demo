@@ -1,0 +1,37 @@
+.fibonacci-result-calls {
+  font-size: 18px;
+  color: var(--purple);
+  font-weight: bold;
+  font-family: 'Roboto';
+
+  padding-bottom: 16px;
+
+  span {
+    color: black;
+  }
+}
+
+.fibonacci-result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 18px;
+  color: black;
+  font-weight: bold;
+  font-family: 'Roboto';
+
+  .fibonacci-result-value {
+    font-size: 24px;
+    color: var(--purple);
+    font-weight: normal;
+    text-align: center;
+
+    min-width: 50px;
+
+    border: 2px solid;
+    border-radius: 8px;
+
+    padding: 8px;
+  }
+}

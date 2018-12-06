@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import Button        from '../Button';
 import Input         from '../Input';
+import Result        from './Result';
 import fibonacciNode from '../../modules/fibonacci-node';
 import timedFunction from '../../modules/timed-function';
 
@@ -9,8 +10,12 @@ import './fibonacci.scss';
 
 const Fibonacci = (props) => {
 
-  const [rust, setRust] = useState('-');
-  const [node, setNode] = useState('-');
+  const [rust, setRust] = useState('-'); // stores the time
+  const [rustFib, setRustFib] = useState('-'); // stores the fibonacci total number
+
+  const [node, setNode] = useState('-'); // stores the time
+  const [nodeFib, setNodeFib] = useState('-'); // stores the fibonacci total number
+
   const [seed, setSeed] = useState('25');
 
   const valid = seed >= 0;
@@ -19,13 +24,15 @@ const Fibonacci = (props) => {
     if(valid) {
       // call the fibonacci WASM function from the window object
       const rustTime = timedFunction(() => {
-        window.fibonacci(seed);
+        setRustFib(window.fibonacci(seed));
       });
+      // format the time to seconds and round off long decimal
       setRust((rustTime / 1000).toFixed(3));
       // call the fibonacci javascript function
       const nodeTime = timedFunction(() => {
-        fibonacciNode(seed);
+        setNodeFib(fibonacciNode(seed));
       });
+      // format the time to seconds and round off long decimal
       setNode((nodeTime / 1000).toFixed(3));
     }
   }
@@ -48,19 +55,17 @@ const Fibonacci = (props) => {
       </div>
 
       <div className='fibonacci-result-container'>
-        <div className='fibonacci-result'>
-          {'Rust took:'}
-          <div className='fibonacci-result-value'>
-            { rust + (rust !== '-' ? 's' : '') }
-          </div>
-        </div>
-        
-        <div className='fibonacci-result'>
-          {'Node.js took:'}
-          <div className='fibonacci-result-value'>
-            { node + (node !== '-' ? 's' : '') }
-          </div>
-        </div>
+
+        <Result
+          name='Rust'
+          time={rust}
+          value={rustFib} />
+
+        <Result
+          name='Node.js'
+          time={node}
+          value={nodeFib} />
+
       </div>
 
     </div>
