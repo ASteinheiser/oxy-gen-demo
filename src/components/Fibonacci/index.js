@@ -1,27 +1,36 @@
 import React, { useState } from 'react';
 
+import Button from '../Button';
+import Input  from '../Input';
+
 import './fibonacci.scss';
 
 const Fibonacci = (props) => {
 
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = useState('25');
+  const valid = number >= 0;
 
-  function handleClick() {
-    setNumber(window.fibonacci(40));
+  function handleRunTest() {
+    if(valid) {
+      console.log(window.fibonacci(number));
+    }
   }
 
   return(
     <div className='fibonacci-container'>
-      
-      <span className='fibonacci-text'>
-        { number }
-      </span>
 
-      <button
-        className='fibonacci-button'
-        onClick={handleClick}>
-        {'New Random Number'}
-      </button>
+      <Input
+        label='Seed Number'
+        type='number'
+        value={number}
+        valid={valid}
+        onChange={(e) => setNumber(e.target.value)} />
+
+      <div className='fibonacci-button'>
+        <Button
+          text='Run Test'
+          onClick={handleRunTest} />
+      </div>
 
     </div>
   );

@@ -1,29 +1,14 @@
 .fibonacci-container {
   display: flex;
   flex-direction: row;
-
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
 
-  padding: 12px 32px;
-
-  .fibonacci-text {
-    font-size: 22px;
-    color: black;
-  }
+  padding: 0 32px;
 
   .fibonacci-button {
-    font-size: 16px;
-    color: black;
+    width: 150px;
 
-    border: none;
-    outline: none;
-
-    border-radius: 5px;
-    background: #d6d6d6;
-
-    padding: 8px 12px;
-
-    cursor: pointer;
+    margin-left: 24px;
   }
 }
