@@ -1,5 +1,10 @@
 # Electron App with React + Rust
 
+# TODO:
+- [ ] add web workers for dispatching both fibonacci calculations to allow for loading spinners
+- [ ] generalize rust exports file from `fibonacci.wasm` to `rust.wasm`
+- [ ] fix `url is not defined` error by adding `electron-fetch`
+
 ## Rust Toolchain Setup
 ### Install Rustup
 ```
