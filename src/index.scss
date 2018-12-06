@@ -1,3 +1,7 @@
+html {
+  --purple: #492f9f;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -14,6 +18,16 @@ code {
 }
 
 .app-title {
+  color: white;
+  text-align: center;
+
+  background: var(--purple);
+
+  margin: 0;
+  padding: 50px 0 25px;
+}
+
+.app-subheader {
   color: black;
   text-align: center;
 }

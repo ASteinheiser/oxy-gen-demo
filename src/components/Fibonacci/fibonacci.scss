@@ -1,4 +1,4 @@
-.random-number-container {
+.fibonacci-container {
   display: flex;
   flex-direction: row;
 
@@ -7,12 +7,12 @@
 
   padding: 12px 32px;
 
-  .random-number-text {
+  .fibonacci-text {
     font-size: 22px;
     color: black;
   }
 
-  .random-number-button {
+  .fibonacci-button {
     font-size: 16px;
     color: black;
 

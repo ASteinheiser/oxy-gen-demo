@@ -19,7 +19,7 @@
     "electron": "electron .",
     "electron-dev": "ELECTRON_START_URL=http://localhost:3000 electron .",
     "build-wasm": "cargo build --target wasm32-unknown-unknown",
-    "build-bindgen": "wasm-bindgen --no-typescript target/wasm32-unknown-unknown/debug/random_number.wasm --out-dir rust-build"
+    "build-bindgen": "mkdir ./rust-build/; wasm-bindgen --no-typescript target/wasm32-unknown-unknown/debug/fibonacci.wasm --out-dir rust-build"
   },
   "eslintConfig": {
     "extends": "react-app"

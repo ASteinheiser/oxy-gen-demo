@@ -1,16 +1,32 @@
 import React from 'react';
 
-import RandomNumber from './components/RandomNumber';
+import Fibonacci   from './components/Fibonacci';
+import useLoadWasm from './modules/use-load-wasm';
 
-const App = (props) => {
+const App = () => {
+
+  const loadedWasm = useLoadWasm();
+
+  if(!loadedWasm) {
+    return(
+      <div>
+        {'Loading!'}
+      </div>
+    );
+  }
+
   return(
     <React.Fragment>
  
       <h1 className='app-title'>
-        {'React + Rust App'}
+        {'React + Rust(WASM) running in Electron!'}
       </h1>
 
-      <RandomNumber />
+      <h2 className='app-subheader'>
+        {'Fibonacci Speed Test'}
+      </h2>
+
+      <Fibonacci />
 
     </React.Fragment>
   );

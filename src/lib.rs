@@ -3,6 +3,10 @@ extern crate wasm_bindgen;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
-pub extern fn find_num() -> i32 {
-  return 123 * 11;
+pub extern fn fibonacci(n: u32) -> u32 {
+  match n {
+    0 => 1,
+    1 => 1,
+    _ => fibonacci(n - 1) + fibonacci(n - 2)
+  }
 }

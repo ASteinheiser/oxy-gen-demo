@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "React + Rust + Electron",
+  "name": "React + Rust(WASM) running on Electron",
   "icons": [
     {
       "src": "favicon.ico",

@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 
-import './random-number.scss';
+import './fibonacci.scss';
 
-const RandomNumber = (props) => {
+const Fibonacci = (props) => {
 
   const [number, setNumber] = useState(0);
 
   function handleClick() {
-    setNumber(window.find_num());
+    setNumber(window.fibonacci(40));
   }
 
   return(
-    <div className='random-number-container'>
+    <div className='fibonacci-container'>
       
-      <span className='random-number-text'>
+      <span className='fibonacci-text'>
         { number }
       </span>
 
       <button
-        className='random-number-button'
+        className='fibonacci-button'
         onClick={handleClick}>
         {'New Random Number'}
       </button>
@@ -27,4 +27,4 @@ const RandomNumber = (props) => {
   );
 }
 
-export default RandomNumber;
+export default Fibonacci;
