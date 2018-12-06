@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "./",
-  "main": "electron-start.js",
+  "main": "public/electron.js",
+  "description": "An Electron app written in React with Rust (WASM)",
+  "author": "Andrew Steinheiser",
   "dependencies": {
     "node-sass": "^4.10.0",
     "react": "^16.7.0-alpha.0",
@@ -20,7 +22,12 @@
     "electron": "electron .",
     "electron-dev": "ELECTRON_START_URL=http://localhost:3000 electron .",
     "build-wasm": "cargo build --target wasm32-unknown-unknown",
-    "build-bindgen": "mkdir ./rust-build/; wasm-bindgen --no-typescript target/wasm32-unknown-unknown/debug/fibonacci.wasm --out-dir rust-build"
+    "build-bindgen": "mkdir ./rust-build/; wasm-bindgen --no-typescript target/wasm32-unknown-unknown/debug/fibonacci.wasm --out-dir rust-build",
+    "postinstall": "install-app-deps",
+    "pack": "build --dir",
+    "dist": "build",
+    "electron-pack": "build --mac --linux --win",
+    "preelectron-pack": "yarn build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,6 +40,41 @@
   ],
   "devDependencies": {
     "electron": "^3.0.10",
+    "electron-builder": "^20.38.2",
     "foreman": "^3.0.1"
+  },
+  "build": {
+    "appId": "io.iamandrew.react_rust_app",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "build/icon.ico"
+    }
   }
 }
