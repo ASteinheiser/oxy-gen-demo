@@ -3,6 +3,8 @@ html, body, #root {
 }
 
 html {
+  --light-gray: #9b9b9b;
+  --red: #e20000;
   --purple: #492f9f;
 }
 
@@ -23,15 +25,20 @@ code {
 
 .app-title {
   color: white;
+  font-family: 'Roboto';
   text-align: center;
 
   background: var(--purple);
 
   margin: 0;
-  padding: 50px 0 25px;
+  padding: 48px 24px 24px;
 }
 
 .app-subheader {
   color: black;
+  font-family: 'Roboto';
   text-align: center;
+
+  margin: 0;
+  padding: 24px;
 }

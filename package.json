@@ -8,7 +8,8 @@
     "node-sass": "^4.10.0",
     "react": "^16.7.0-alpha.0",
     "react-dom": "^16.7.0-alpha.0",
-    "react-scripts": "2.1.1"
+    "react-scripts": "2.1.1",
+    "typeface-roboto": "^0.0.54"
   },
   "scripts": {
     "dev": "nf start",
