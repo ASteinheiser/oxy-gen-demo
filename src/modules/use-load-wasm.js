@@ -5,12 +5,22 @@
 // -----------------------------------
 import { useEffect, useState } from 'react';
 
+const { remote } = window.require('electron');
+const url        = require('url');
+const path       = require('path');
+
+const WASM_URL = url.format({
+  pathname: path.join(remote.app.getAppPath(), '/build/fibonacci_bg.wasm'),
+  protocol: 'file:',
+  slashes: true
+});
+
 const useLoadWasm = () => {
 
   const [done, setDone] = useState(false);
 
   useEffect(() => {
-    fetch("/fibonacci_bg.wasm")
+    fetch(WASM_URL)
       .then(response =>
         response.arrayBuffer()
       ).then(bytes =>

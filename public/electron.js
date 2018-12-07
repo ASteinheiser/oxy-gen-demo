@@ -1,4 +1,6 @@
 const electron = require('electron');
+const url = require('url');
+const path = require('path');
 
 // Create a new electron app!
 const app = electron.app;
@@ -11,7 +13,7 @@ const BrowserWindow = electron.BrowserWindow;
 let mainWindow;
 
 const START_URL = process.env.ELECTRON_START_URL || url.format({
-  pathname: path.join(__dirname, '/build/index.html'),
+  pathname: path.join(__dirname, '/index.html'),
   protocol: 'file:',
   slashes: true
 });
