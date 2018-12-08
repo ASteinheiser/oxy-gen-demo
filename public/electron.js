@@ -1,6 +1,6 @@
 const electron = require('electron');
-const url = require('url');
-const path = require('path');
+const url      = require('url');
+const path     = require('path');
 
 // Create a new electron app!
 const app = electron.app;
@@ -24,7 +24,9 @@ const createWindow = () => {
 
   mainWindow.loadURL(START_URL);
 
-  mainWindow.webContents.openDevTools();
+  if(process.env.ELECTRON_START_URL) {
+    mainWindow.webContents.openDevTools();
+  }
 
   mainWindow.on('closed', () => {
     // Dereference the window object, usually you would store windows
