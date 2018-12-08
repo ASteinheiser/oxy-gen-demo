@@ -1,7 +1,7 @@
 extern crate wasm_bindgen;
 
 use wasm_bindgen::prelude::*;
-
+// Export your rust functions here
 #[wasm_bindgen]
 pub extern fn fibonacci(n: u32) -> u32 {
   match n {

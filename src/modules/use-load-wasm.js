@@ -10,10 +10,10 @@ const url        = require('url');
 const path       = require('path');
 // set the correct path to the WASM file
 let WASM_URL = (process.env.NODE_ENV === 'development') ?
-  '/fibonacci_bg.wasm'
+  '/rust_bg.wasm'
   :
   url.format({
-    pathname: path.join(remote.app.getAppPath(), '/build/fibonacci_bg.wasm'),
+    pathname: path.join(remote.app.getAppPath(), '/build/rust_bg.wasm'),
     protocol: 'file:',
     slashes: true
   });
@@ -30,7 +30,7 @@ const useLoadWasm = () => {
         WebAssembly.instantiate(bytes, {imports: {}})
       ).then(results => {
         setDone(true);
-        // bind WASM functions to window for easy access
+        // bind rust WASM functions to window for easy access
         window.fibonacci = results.instance.exports.fibonacci;
       });
   }, []); // pass `[]` for componentWillMount

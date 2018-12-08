@@ -22,7 +22,7 @@
     "electron": "electron .",
     "electron-dev": "ELECTRON_START_URL=http://localhost:3000 electron .",
     "build-wasm": "cargo build --target wasm32-unknown-unknown",
-    "build-bindgen": "mkdir ./rust-build/; wasm-bindgen --no-typescript target/wasm32-unknown-unknown/debug/fibonacci.wasm --out-dir rust-build",
+    "build-bindgen": "mkdir ./rust-build/; wasm-bindgen --no-typescript target/wasm32-unknown-unknown/debug/rust.wasm --out-dir rust-build",
     "postinstall": "install-app-deps",
     "pack": "build --dir",
     "dist": "build",

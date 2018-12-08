@@ -4,7 +4,7 @@ version = "0.1.0"
 authors = ["Andrew Steinheiser <me@iamandrew.io>"]
 
 [lib]
-name = "fibonacci"
+name = "rust"
 crate-type = ["cdylib"]
 
 [dependencies]
