@@ -6,6 +6,21 @@ const Result = (props) => {
 
   const { name, time, value } = props;
 
+  let estimate = format(value);
+
+  function format(num) {
+    const { pow, floor, abs, log } = Math;
+
+    var base = floor(log(abs(num)) / log(1000));
+    var suffix = 'KMBTQ'[base - 1];
+    return suffix ? round(num / pow(1000, base), 2) + suffix : '' + num;
+  }
+
+  function round(num, precision) {
+    var prec = Math.pow(10, precision);
+    return Math.round(num * prec) / prec;
+  }
+
   return(
     <React.Fragment>
       <div className='fibonacci-result'>
@@ -19,17 +34,17 @@ const Result = (props) => {
       </div>
 
       <div className='fibonacci-result-calls'>
-
-        { value }
-
-        <span>
-          {
-            value !== '-' ?
-              ' calls'
-              :
-              ''
-          }
-        </span>
+        {
+          value === '-' ?
+            value
+            :
+            <React.Fragment>
+              { estimate }
+              <span>
+                {' calls'}
+              </span>
+            </React.Fragment>
+        }
       </div>
     </React.Fragment>
   );

@@ -3,7 +3,6 @@
 # TODO:
 - [ ] add web workers for dispatching both fibonacci calculations to allow for loading spinners
 - [ ] fix app icons
-- [ ] estimate recursive calls
 
 ## Rust Toolchain Setup
 ### Install Rustup
