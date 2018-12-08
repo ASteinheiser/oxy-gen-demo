@@ -44,6 +44,7 @@
     "foreman": "^3.0.1"
   },
   "build": {
+    "productName": "React Rust App",
     "appId": "io.iamandrew.react_rust_app",
     "files": [
       "build/**/*",
@@ -67,6 +68,7 @@
       ]
     },
     "linux": {
+      "category": "Utility",
       "target": [
         "AppImage",
         "deb"
@@ -81,8 +83,7 @@
             "ia32"
           ]
         }
-      ],
-      "icon": "build/icon.ico"
+      ]
     }
   }
 }

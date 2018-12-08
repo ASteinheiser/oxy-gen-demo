@@ -2,7 +2,6 @@
 
 # TODO:
 - [ ] add web workers for dispatching both fibonacci calculations to allow for loading spinners
-- [ ] fix app icons
 
 ## Rust Toolchain Setup
 ### Install Rustup
@@ -29,4 +28,9 @@ npm run build
 ## Run Dev Electron App:
 ```
 npm run dev
+```
+
+## Build Distribution for Mac, Linux and Windows
+```
+npm run electron-pack
 ```
