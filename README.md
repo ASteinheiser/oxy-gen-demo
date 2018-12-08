@@ -4,6 +4,7 @@
 - [ ] add web workers for dispatching both fibonacci calculations to allow for loading spinners
 - [ ] generalize rust exports file from `fibonacci.wasm` to `rust.wasm`
 - [ ] fix app icons
+- [ ] estimate recursive calls
 
 ## Rust Toolchain Setup
 ### Install Rustup
