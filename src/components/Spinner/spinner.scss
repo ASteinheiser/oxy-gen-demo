@@ -10,11 +10,11 @@
     content: " ";
     display: block;
     
-    width: 92px;
-    height: 92px;
+    width: 16px;
+    height: 16px;
 
     border-radius: 50%;
-    border: 10px solid var(--purple);
+    border: 6px solid var(--purple);
     border-color: var(--purple) transparent var(--purple) transparent;
 
     animation: spinning 1.2s linear infinite;

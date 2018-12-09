@@ -14,26 +14,30 @@ const Fibonacci = (props) => {
   const [rustWebWorker, setRustWebWorker] = useState(null);
   const [rustTime, setRustTime] = useState('-'); // stores the time
   const [rustFib, setRustFib] = useState('-'); // stores the fibonacci total number
+  const [rustLoading, setRustLoading] = useState(false);
 
   const [jsWebWorker, setJsWebWorker] = useState(null);
   const [nodeTime, setNodeTime] = useState('-'); // stores the time
   const [nodeFib, setNodeFib] = useState('-'); // stores the fibonacci total number
+  const [nodeLoading, setNodeLoading] = useState(false);
 
   const [seed, setSeed] = useState('25');
-  const valid = (seed >= 0);
+  const valid = (seed >= 0) && (seed <= 50);
 
   useEffect(() => {
     let newRustWorker = new WebWorker(rustWorker, { type : 'module' });
-    let newJsWorker = new WebWorker(jsWorker, { type : 'module' });
+    let newJsWorker = new WebWorker(jsWorker);
 
     newRustWorker.onmessage = (e) => {
       setRustFib(e.data.sum);
       setRustTime(e.data.time);
+      setRustLoading(false);
     };
 
     newJsWorker.onmessage = (e) => {
       setNodeFib(e.data.sum);
       setNodeTime(e.data.time);
+      setNodeLoading(false);
     };
 
     setRustWebWorker(newRustWorker);
@@ -43,7 +47,9 @@ const Fibonacci = (props) => {
   function handleRunTest(e) {
     if(e && typeof e.preventDefault === 'function') e.preventDefault();
 
-    if(valid) {
+    if(valid && !rustLoading && !nodeLoading) {
+      setNodeLoading(true);
+      setRustLoading(true);
       jsWebWorker.postMessage(seed);
       rustWebWorker.postMessage(seed);
     }
@@ -61,6 +67,7 @@ const Fibonacci = (props) => {
 
         <div className='fibonacci-button'>
           <Button
+            disabled={rustLoading || nodeLoading}
             text='Run Test'
             onClick={handleRunTest} />
         </div>
@@ -70,11 +77,13 @@ const Fibonacci = (props) => {
 
         <Result
           name='Rust'
+          loading={rustLoading}
           time={rustTime}
           value={rustFib} />
 
         <Result
           name='Node.js'
+          loading={nodeLoading}
           time={nodeTime}
           value={nodeFib} />
 

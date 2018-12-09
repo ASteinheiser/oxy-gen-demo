@@ -1,10 +1,12 @@
 import React from 'react';
 
+import Spinner from '../../Spinner';
+
 import './result.scss';
 
 const Result = (props) => {
 
-  const { name, time, value } = props;
+  const { name, time, value, loading } = props;
 
   let estimate = format(value);
 
@@ -28,15 +30,20 @@ const Result = (props) => {
         {`${name} made:`}
 
         <div className='fibonacci-result-value'>
-          { time + (time !== '-' ? 's' : '') }
+          {
+            loading ?
+              <Spinner />
+              :
+              time + (time !== '-' ? 's' : '')
+          }
         </div>
 
       </div>
 
       <div className='fibonacci-result-calls'>
         {
-          value === '-' ?
-            value
+          value === '-' || loading ?
+            '-'
             :
             <React.Fragment>
               { estimate }
