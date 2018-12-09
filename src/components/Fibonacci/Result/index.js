@@ -20,7 +20,7 @@ const Result = (props) => {
 
     var base = floor(log(abs(num)) / log(1000));
     var suffix = 'KMBTQ'[base - 1];
-    return suffix ? round(num / pow(1000, base), 2) + suffix : '' + num;
+    return suffix ? round(num / pow(1000, base), 2) + ` ${suffix}` : `${num}`;
   }
 
   function round(num, precision) {
@@ -53,7 +53,7 @@ const Result = (props) => {
             <React.Fragment>
               { sumEstimate }
               <span>
-                {' calls'}
+                {' recursive calls'}
               </span>
             </React.Fragment>
         }

@@ -25,7 +25,7 @@ const Fibonacci = (props) => {
   const [nodeLoading, setNodeLoading] = useState(false);
 
   const [seed, setSeed] = useState('25');
-  const valid = (seed >= 0) && (seed <= 50);
+  const valid = (seed >= 0) && (seed <= 45);
 
   useEffect(() => {
     let newRustWorker = new WebWorker(rustWorker);
