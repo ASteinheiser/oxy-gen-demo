@@ -19,7 +19,11 @@ cargo install wasm-bindgen-cli
 ## Install Dependencies:
 ```
 yarn install
-npm run build
+```
+
+## Build Rust(WASM) and React App:
+```
+yarn build
 ```
 
 ## Run Dev Electron App:
