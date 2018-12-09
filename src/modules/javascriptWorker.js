@@ -1,4 +1,7 @@
-// Web worker file for running fibonacci func in JS
+// ------------------------
+// Web worker file for running fibonacci
+// recursive function written in Node.js
+// ------------------------
 export default function JsFibWebWorker(args) {
   // "main" function for communicating with the web worker
   const onmessage = (e) => { // eslint-disable-line no-unused-vars
