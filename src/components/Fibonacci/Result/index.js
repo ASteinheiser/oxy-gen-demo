@@ -8,7 +8,12 @@ const Result = (props) => {
 
   const { name, time, value, loading } = props;
 
-  let estimate = format(value);
+  let timeEstimate;
+  if(time === '-') timeEstimate = '-';
+  // format the time to seconds and round off long decimal
+  else timeEstimate = (time / 1000).toFixed(3) + 's';
+
+  let sumEstimate = format(value);
 
   function format(num) {
     const { pow, floor, abs, log } = Math;
@@ -34,7 +39,7 @@ const Result = (props) => {
             loading ?
               <Spinner />
               :
-              time + (time !== '-' ? 's' : '')
+              timeEstimate
           }
         </div>
 
@@ -46,7 +51,7 @@ const Result = (props) => {
             '-'
             :
             <React.Fragment>
-              { estimate }
+              { sumEstimate }
               <span>
                 {' calls'}
               </span>

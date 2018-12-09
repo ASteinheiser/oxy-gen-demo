@@ -9,6 +9,9 @@ import rustWorker    from '../../modules/rustWorker';
 
 import './fibonacci.scss';
 
+// set the path to the rust (WASM) file
+const WASM_URL = 'http://localhost:5000/rust_bg.wasm';
+
 const Fibonacci = (props) => {
 
   const [rustWebWorker, setRustWebWorker] = useState(null);
@@ -51,7 +54,7 @@ const Fibonacci = (props) => {
       setNodeLoading(true);
       setRustLoading(true);
       jsWebWorker.postMessage(seed);
-      rustWebWorker.postMessage(seed);
+      rustWebWorker.postMessage({ seed, path: WASM_URL });
     }
   }
 

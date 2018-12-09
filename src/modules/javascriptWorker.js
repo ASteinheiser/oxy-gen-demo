@@ -10,8 +10,6 @@ export default function JsFibWebWorker(args) {
     let time = timedFunction(() => {
       sum = fibonacci(e.data);
     });
-    // format the time to seconds and round off long decimal
-    time = (time / 1000).toFixed(3);
 
     postMessage({ time, sum });
   };

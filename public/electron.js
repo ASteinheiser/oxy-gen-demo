@@ -20,7 +20,13 @@ const START_URL = process.env.ELECTRON_START_URL || url.format({
 
 const createWindow = () => {
 
-  mainWindow = new BrowserWindow({ width: 800, height: 480 });
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 480,
+    'web-preferences': {
+      'web-security': false
+    }
+  });
 
   mainWindow.loadURL(START_URL);
 
