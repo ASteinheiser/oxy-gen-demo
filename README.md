@@ -1,8 +1,5 @@
 # Electron App with React + Rust
 
-# TODO:
-- [ ] add web workers for dispatching both fibonacci calculations to allow for loading spinners
-
 ## Rust Toolchain Setup
 ### Install Rustup
 ```

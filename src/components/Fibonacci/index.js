@@ -1,41 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Button        from '../Button';
 import Input         from '../Input';
 import Result        from './Result';
-import fibonacciNode from '../../modules/fibonacci-node';
-import timedFunction from '../../modules/timed-function';
+import WebWorker     from '../../modules/webWorker';
+import jsWorker      from '../../modules/javascriptWorker';
+import rustWorker    from '../../modules/rustWorker';
 
 import './fibonacci.scss';
 
 const Fibonacci = (props) => {
 
-  const [rust, setRust] = useState('-'); // stores the time
+  const [rustWebWorker, setRustWebWorker] = useState(null);
+  const [rustTime, setRustTime] = useState('-'); // stores the time
   const [rustFib, setRustFib] = useState('-'); // stores the fibonacci total number
 
-  const [node, setNode] = useState('-'); // stores the time
+  const [jsWebWorker, setJsWebWorker] = useState(null);
+  const [nodeTime, setNodeTime] = useState('-'); // stores the time
   const [nodeFib, setNodeFib] = useState('-'); // stores the fibonacci total number
 
   const [seed, setSeed] = useState('25');
+  const valid = (seed >= 0);
 
-  const valid = seed >= 0;
+  useEffect(() => {
+    let newRustWorker = new WebWorker(rustWorker, { type : 'module' });
+    let newJsWorker = new WebWorker(jsWorker, { type : 'module' });
+
+    newRustWorker.onmessage = (e) => {
+      setRustFib(e.data.sum);
+      setRustTime(e.data.time);
+    };
+
+    newJsWorker.onmessage = (e) => {
+      setNodeFib(e.data.sum);
+      setNodeTime(e.data.time);
+    };
+
+    setRustWebWorker(newRustWorker);
+    setJsWebWorker(newJsWorker);
+  }, []); // passing `[]` to use effect as a componentWillMount()
 
   function handleRunTest(e) {
     if(e && typeof e.preventDefault === 'function') e.preventDefault();
 
     if(valid) {
-      // call the fibonacci WASM function from the window object
-      const rustTime = timedFunction(() => {
-        setRustFib(window.fibonacci(seed));
-      });
-      // format the time to seconds and round off long decimal
-      setRust((rustTime / 1000).toFixed(3));
-      // call the fibonacci javascript function
-      const nodeTime = timedFunction(() => {
-        setNodeFib(fibonacciNode(seed));
-      });
-      // format the time to seconds and round off long decimal
-      setNode((nodeTime / 1000).toFixed(3));
+      jsWebWorker.postMessage(seed);
+      rustWebWorker.postMessage(seed);
     }
   }
 
@@ -60,12 +70,12 @@ const Fibonacci = (props) => {
 
         <Result
           name='Rust'
-          time={rust}
+          time={rustTime}
           value={rustFib} />
 
         <Result
           name='Node.js'
-          time={node}
+          time={nodeTime}
           value={nodeFib} />
 
       </div>
