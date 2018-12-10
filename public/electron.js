@@ -23,13 +23,14 @@ const createWindow = () => {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 480,
-    'web-preferences': {
-      'web-security': false
+    webPreferences: {
+      nodeIntegrationInWorker: true
     }
   });
 
   mainWindow.loadURL(START_URL);
 
+  // disable the dev tools being opened on production
   if(process.env.ELECTRON_START_URL) {
     mainWindow.webContents.openDevTools();
   }

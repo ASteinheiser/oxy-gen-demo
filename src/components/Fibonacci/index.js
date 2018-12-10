@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from 'react';
 
-import Button        from '../Button';
-import Input         from '../Input';
-import Result        from './Result';
-import WebWorker     from '../../modules/webWorker';
-import jsWorker      from '../../modules/javascriptWorker';
-import rustWorker    from '../../modules/rustWorker';
+import Button     from '../Button';
+import Input      from '../Input';
+import Result     from './Result';
+import WebWorker  from '../../modules/webWorker';
+import jsWorker   from '../../modules/javascriptWorker';
+import rustWorker from '../../modules/rustWorker';
 
 import './fibonacci.scss';
 
-// set the path to the rust (WASM) file
-const WASM_URL = 'http://localhost:5000/rust_bg.wasm';
+const { remote } = window.require('electron');
+const url        = require('url');
+const path       = require('path');
+// set the correct path to the rust (WASM) file
+const WASM_URL = (process.env.NODE_ENV === 'development') ?
+  'http://localhost:5000/rust_bg.wasm'
+  :
+  url.format({
+    pathname: path.join(remote.app.getAppPath(), '/build/rust_bg.wasm'),
+    protocol: 'file:',
+    slashes: true
+  });
 
 const Fibonacci = (props) => {
 
