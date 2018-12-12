@@ -4,7 +4,7 @@
 // ------------------------
 export default function JsFibWebWorker(args) {
   // "main" function for communicating with the web worker
-  const onmessage = (e) => { // eslint-disable-line no-unused-vars
+  this.onmessage = (e) => { // eslint-disable-line no-unused-vars
     let sum;
     // time the fibonacci function
     let time = timedFunction(() => {

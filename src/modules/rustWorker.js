@@ -4,7 +4,7 @@
 // ------------------------
 export default function RustFibWebWorker(args) {
   // "main" function for communicating with the web worker
-  const onmessage = (e) => { // eslint-disable-line no-unused-vars
+  this.onmessage = (e) => { // eslint-disable-line no-unused-vars
     // get the fibonacci seed number from user and path to WASM file
     const { seed, path } = e.data;
 
