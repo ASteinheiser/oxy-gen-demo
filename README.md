@@ -1,5 +1,10 @@
 # Electron App with React + Rust
 
+## TODO:
+- [ ] load rust WASM only once in the web worker (check for function)
+- [ ] reduce app size by not including dev dependencies
+- [ ] fix jswebworker infinite recursion on 0 or 1 (I think it's passing a boolean)
+
 ## Rust Toolchain Setup
 ### Install Rustup
 ```
