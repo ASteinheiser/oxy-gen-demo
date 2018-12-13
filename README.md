@@ -5,6 +5,8 @@
 - [ ] reduce app size by not including dev dependencies
 - [ ] fix jswebworker infinite recursion on 0 or 1 (I think it's passing a boolean)
 - [ ] add onerror to webworker and handle error in app
+- [ ] change name to oxy-gen-demo
+- [ ] add descriptive overlay on initial load
 
 ## Rust Toolchain Setup
 ### Install Rustup
