@@ -1,7 +1,6 @@
 # Electron App with React + Rust
 
 ## TODO:
-- [ ] add onerror to webworker and handle error in app
 - [ ] change name to oxy-gen-demo
 - [ ] add descriptive overlay on initial load
 

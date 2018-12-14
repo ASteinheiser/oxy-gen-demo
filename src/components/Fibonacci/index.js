@@ -47,9 +47,21 @@ const Fibonacci = (props) => {
       setRustLoading(false);
     };
 
+    newRustWorker.onerror = (e) => {
+      setRustFib('ERROR');
+      setRustTime('ERROR');
+      setRustLoading(false);
+    };
+
     newJsWorker.onmessage = (e) => {
       setNodeFib(e.data.sum);
       setNodeTime(e.data.time);
+      setNodeLoading(false);
+    };
+
+    newJsWorker.onerror = (e) => {
+      setNodeFib('ERROR');
+      setNodeTime('ERROR');
       setNodeLoading(false);
     };
 
