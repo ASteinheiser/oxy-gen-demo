@@ -2,7 +2,6 @@
 
 ## TODO:
 - [ ] change name to oxy-gen-demo
-- [ ] add descriptive overlay on initial load
 
 ## Rust Toolchain Setup
 ### Install Rustup
