@@ -48,7 +48,7 @@
     "appId": "io.iamandrew.react_rust_app",
     "files": [
       "build/**/*",
-      "node_modules/**/*"
+      "!node_modules/**/*"
     ],
     "directories": {
       "buildResources": "assets"
