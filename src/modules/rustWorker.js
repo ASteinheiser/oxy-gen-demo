@@ -8,21 +8,32 @@ export default function RustFibWebWorker(args) {
     // get the fibonacci seed number from user and path to WASM file
     const { seed, path } = e.data;
 
-    fetch(path)
-      .then(response => response.arrayBuffer())
-      .then(bytes => WebAssembly.instantiate(bytes, {imports: {}}))
-      .then(results => {
-        // bind rust WASM function to js function
-        const { fibonacci } = results.instance.exports;
+    if(this.fibonacci) {
+      callFib();
+    } else {
+      // if we dont have the WebAssembly loaded, load it in!
+      fetch(path)
+        .then(response => response.arrayBuffer())
+        .then(bytes => WebAssembly.instantiate(bytes, {imports: {}}))
+        .then(results => {
+          // bind rust WASM function to js function
+          const { fibonacci } = results.instance.exports;
+          // bind that function to `this` so we can use it later
+          this.fibonacci = fibonacci;
 
-        let sum;
-        // time the fibonacci function
-        let time = timedFunction(() => {
-          sum = fibonacci(seed);
+          callFib();
         });
+    }
 
-        postMessage({ time, sum });
+    function callFib() {
+      let sum;
+      // time the fibonacci function
+      let time = timedFunction(() => {
+        sum = this.fibonacci(seed);
       });
+
+      postMessage({ time, sum });
+    }
   };
 
   const timedFunction = (func) => {

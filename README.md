@@ -1,7 +1,6 @@
 # Electron App with React + Rust
 
 ## TODO:
-- [ ] load rust WASM only once in the web worker (check for function)
 - [ ] add onerror to webworker and handle error in app
 - [ ] change name to oxy-gen-demo
 - [ ] add descriptive overlay on initial load
