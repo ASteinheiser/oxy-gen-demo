@@ -1,6 +1,6 @@
 {
-  "short_name": "React + Rust + Electron",
-  "name": "React + Rust(WASM) running on Electron",
+  "short_name": "OXY-GEN Demo",
+  "name": "OXY-GEN Demo",
   "icons": [
     {
       "src": "favicon.ico",

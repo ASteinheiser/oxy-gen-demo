@@ -1,10 +1,10 @@
 {
-  "name": "react-rust-app",
+  "name": "oxy-gen-demo",
   "version": "0.1.0",
   "private": true,
   "homepage": "./",
   "main": "public/electron.js",
-  "description": "An Electron app written in React with Rust (WASM)",
+  "description": "An Electron app written in React with Rust (Web Assembly)",
   "author": "Andrew Steinheiser",
   "dependencies": {
     "node-sass": "^4.10.0",
@@ -44,8 +44,8 @@
     "foreman": "^3.0.1"
   },
   "build": {
-    "productName": "React Rust App",
-    "appId": "io.iamandrew.react_rust_app",
+    "productName": "OXY-GEN Demo",
+    "appId": "io.iamandrew.oxy-gen-demo",
     "files": [
       "build/**/*",
       "!node_modules/**/*"
