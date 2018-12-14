@@ -15,13 +15,9 @@ export default function JsFibWebWorker(args) {
   };
 
   const fibonacci = (num) => {
-    switch(num) {
-      case 0:
-      case 1:
-        return 1;
-      default:
-        return fibonacci(num - 1) + fibonacci(num - 2);
-    }
+    if (num <= 1) return 1;
+
+    return fibonacci(num - 1) + fibonacci(num - 2);
   }
 
   const timedFunction = (func) => {

@@ -2,8 +2,6 @@
 
 ## TODO:
 - [ ] load rust WASM only once in the web worker (check for function)
-- [ ] reduce app size by not including dev dependencies
-- [ ] fix jswebworker infinite recursion on 0 or 1 (I think it's passing a boolean)
 - [ ] add onerror to webworker and handle error in app
 - [ ] change name to oxy-gen-demo
 - [ ] add descriptive overlay on initial load
