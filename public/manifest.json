@@ -1,6 +1,6 @@
 {
   "short_name": "OXY-GEN Demo",
-  "name": "OXY-GEN Demo",
+  "name": "Electron App with React and Rust",
   "icons": [
     {
       "src": "favicon.ico",
