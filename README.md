@@ -6,6 +6,8 @@ It uses Electron to build the native app, create-react-app for the React side, a
 
 OXY-GEN includes a recursive fibonacci algorithm written in Node.js and Rust. It uses Web Workers to run both languages in parallel to showcase the speed difference.
 
+<img src="https://raw.githubusercontent.com/ASteinheiser/generator-oxy-gen/master/OXY-GEN%20Demo%20Screenshot.png" alt="OXY-GEN Demo Screenshot" width="600"/>
+
 # First Time Setup
 ## Install Yarn
 ```
